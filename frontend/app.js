@@ -1,4 +1,6 @@
-const API_BASE_URL = window.SDGS_API_BASE_URL || "https://67fa-123-141-94-188.ngrok-free.app";
+const API_BASE_URL =
+  window.SDGS_API_BASE_URL ||
+  "https://kayce-nonnihilistic-overprominently.ngrok-free.dev";
 const ANALYZE_URL = `${API_BASE_URL}/analyze`;
 const ASK_URL = `${API_BASE_URL}/ask`;
 const USE_MOCK_WHEN_API_NOT_READY = false;

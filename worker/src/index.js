@@ -4,7 +4,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, ngrok-skip-browser-warning",
 };
 
-const AI_SERVER_URL = "https://bd9d-123-141-94-188.ngrok-free.app";
+const AI_SERVER_URL =
+  "https://kayce-nonnihilistic-overprominently.ngrok-free.dev";
 
 export default {
   async fetch(request) {

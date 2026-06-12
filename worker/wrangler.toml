@@ -5,4 +5,4 @@ compatibility_date = "2026-06-10"
 [vars]
 # This must be the public URL of the Python FastAPI backend.
 # Do not use 127.0.0.1 after deploying to Cloudflare.
-AI_SERVER_URL = "https://bd9d-123-141-94-188.ngrok-free.app"
+AI_SERVER_URL = "https://kayce-nonnihilistic-overprominently.ngrok-free.dev"
