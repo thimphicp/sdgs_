@@ -1,4 +1,4 @@
-const API_BASE_URL = window.SDGS_API_BASE_URL || "https://sdg.green-food-ai.workers.dev";
+const API_BASE_URL = window.SDGS_API_BASE_URL || "https://bd9d-123-141-94-188.ngrok-free.app";
 const ANALYZE_URL = `${API_BASE_URL}/analyze`;
 const ASK_URL = `${API_BASE_URL}/ask`;
 const USE_MOCK_WHEN_API_NOT_READY = false;
@@ -169,6 +169,9 @@ async function analyzeImage(file) {
 
   const response = await fetch(ANALYZE_URL, {
     method: "POST",
+    headers: {
+      "ngrok-skip-browser-warning": "true",
+    },
     body: formData,
   });
 
@@ -189,6 +192,7 @@ async function askFollowupQuestion(question, analysis) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "ngrok-skip-browser-warning": "true",
     },
     body: JSON.stringify({
       question,
