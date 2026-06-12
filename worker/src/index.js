@@ -4,8 +4,10 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, ngrok-skip-browser-warning",
 };
 
+const AI_SERVER_URL = "https://bd9d-123-141-94-188.ngrok-free.app";
+
 export default {
-  async fetch(request, env) {
+  async fetch(request) {
     if (request.method === "OPTIONS") {
       return new Response(null, { headers: corsHeaders });
     }
@@ -13,30 +15,23 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/health" && request.method === "GET") {
-      return proxyRequest(request, env, "/health");
+      return proxyRequest(request, "/health");
     }
 
     if (url.pathname === "/analyze" && request.method === "POST") {
-      return proxyRequest(request, env, "/analyze");
+      return proxyRequest(request, "/analyze");
     }
 
     if (url.pathname === "/ask" && request.method === "POST") {
-      return proxyRequest(request, env, "/ask");
+      return proxyRequest(request, "/ask");
     }
 
     return jsonResponse({ error: "Not found" }, 404);
   },
 };
 
-async function proxyRequest(request, env, pathname) {
-  if (!env.AI_SERVER_URL) {
-    return jsonResponse(
-      { error: "AI_SERVER_URL is not configured in Worker environment." },
-      500,
-    );
-  }
-
-  const targetUrl = `${env.AI_SERVER_URL.replace(/\/$/, "")}${pathname}`;
+async function proxyRequest(request, pathname) {
+  const targetUrl = `${AI_SERVER_URL.replace(/\/$/, "")}${pathname}`;
   const headers = new Headers(request.headers);
   headers.delete("host");
   headers.set("ngrok-skip-browser-warning", "true");
