@@ -1,0 +1,7 @@
+_worker.js
+**/_worker.js
+worker/
+sdgs/
+.git/
+.gitignore
+wrangler.jsonc
